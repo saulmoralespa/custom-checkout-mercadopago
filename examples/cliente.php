@@ -137,6 +137,6 @@ if (!empty($cards["response"])) {
     </html>
     <?php
 }else{
-    echo "Aun no hay tarjetas guradadas";
+    echo "Aun no hay tarjetas guardadas";
 }
     ?>

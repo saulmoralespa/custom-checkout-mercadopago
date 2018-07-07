@@ -75,45 +75,11 @@ if(isset($_POST)){
             }
 
 
-
-
-            /**
-             * Save tokenCard with relation customer email in dtabase
-             * $tokenCard
-             * $emailclient
-             *
-             */
-
-            /**
-             * execute first payment
-             * take into account the currency_id
-             *
-             * depending on where the account is from mercadopago
-             *
-             *
-
-            ARS
-            Argentine peso
-            BRL
-            Brazilian real
-            VEF
-            Venezuelan strong bolivar
-            CLP
-            Chilean peso
-            MXN
-            Mexican peso
-            COP
-            Colombian peso
-            PEN
-            Peruvian sol
-            UYU
-            Uruguayan peso
-             *
-             *
-             */
-
-
-            $paramsPayment = array("amount" => $preci, "tokenCard" => "$tokenCard", "payment_method_id" => "$payment_method_id", "email" => "$emailclient", "id" => "$idCustomer");
+            $paramsPayment = array("amount" => $preci,
+                "tokenCard" => "$tokenCard",
+                "payment_method_id" => "$payment_method_id",
+                "email" => "$emailclient",
+                "id" => "$idCustomer");
 
             executePayment($paramsPayment);
 
@@ -177,7 +143,9 @@ function executePayment($params, $isSaveCard = false)
          */
 
 
-        echo json_encode(array('status' => true, 'id' => $payment['response']['id'], 'statusPayment' => $payment['response']['status_detail']));
+        echo json_encode(array('status' => true,
+            'id' => $payment['response']['id'],
+            'statusPayment' => $payment['response']['status_detail']));
     }catch (Exception $ex){
         echo json_encode(array('status' => false, 'message' => $ex->getMessage()));
     }
